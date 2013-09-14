@@ -1,0 +1,159 @@
+body {
+  padding-top: 50px; /* Account for fixed navbar */
+  min-width: 150px;
+}
+
+h1, h2, h3 {
+  margin-bottom: 20px;
+}
+
+/* Custom container */
+.container-narrow {
+  margin: 0 auto;
+  max-width: 800px;
+  background-color: white;
+  position: relative;
+  z-index: 1;
+  min-height: 318px;
+}
+
+.container-nav {  
+  width: 100%;
+  min-width: inherit;
+  background-color: #303030;    
+}
+
+/* Top nav and header
+-------------------------------------------------- */
+
+.bs-peng-nav {
+  background-color: inherit;
+  min-height: 43px;
+}
+
+.bs-peng-nav .navbar-toggle{
+  margin-bottom: 5px;
+  margin-top: 4px;
+}
+.bs-peng-nav .navbar-brand,
+.bs-peng-nav .navbar-brand:hover,
+.bs-peng-nav .navbar-brand:focus {
+  font-size: 20px;
+  padding: 2px 2px;
+  margin: 6px 30px 0px -15px; 
+  max-width: 90px;
+}
+.bs-peng-nav .navbar-nav > li{
+  color: #ffaa22;
+}
+
+.bs-peng-nav .navbar-nav > li > a {
+  color: #eeeeee;
+  padding-bottom: 11px;
+  padding-top: 11px;
+  font-size: 17px;
+}
+.bs-peng-nav .navbar-nav > li > a:hover {
+  color: inherit;
+}
+.bs-peng-nav .navbar-nav > .active > a,
+.bs-peng-nav .navbar-nav > .active > a:hover,
+.bs-peng-nav .navbar-nav > .active > a:focus {
+  color: inherit;
+  background-color: #424242;
+}
+
+/*Infinite image
+-------------------------------------------------- */
+
+.infinite-image{
+  position: relative;
+  margin-top: -8px;
+}
+.infinite-image > div{
+  width: 100%;  
+}
+
+.infinite-image-cover {    
+  overflow: hidden;  
+  border-bottom: 1px solid #444;
+  position:absolute;
+  z-index: 0;
+}
+
+.infinite-image-inner {
+  display: inline-block;
+  position: relative;
+  right: -50%;
+}
+  
+.infinite-image-inner img{
+  position: inherit;
+  left: -50%;
+}
+
+.infinite-image-inner-top{
+  border-bottom: 1px solid #444;
+  position: inherit; 
+  z-index: 1;	
+}
+
+/* Horizontal description list
+-------------------------------------------------- */
+
+.dl-horizontal dd {
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .dl-horizontal dt {
+      text-align: left;
+      width: 150px;
+  }
+  .dl-horizontal dd {
+    margin-left: 160px;
+  }
+}
+
+/* Quotes
+-------------------------------------------------- */
+
+blockquote {
+  font-family: Georgia, serif;
+  font-size: 17px;
+  font-style: italic;
+  padding: 6px 42px;
+  margin: 16px;
+  position: relative;
+}
+
+blockquote:before {
+  content: "\201C";
+  font-size: 80px;
+  position: absolute;
+  left: -20px;
+  top: -20px;
+  color: #7a7a7a;
+  margin-left:20px;
+}
+
+/* Posts
+-------------------------------------------------- */
+
+.posts td {
+  padding: 3px;
+}
+
+.posts td.textfit{
+  width:25%;
+}
+
+.postsubtitle {
+  margin-top: -10px;
+  margin-bottom: 20px;
+  color: #777777;
+}
+
+/* Live score
+-------------------------------------------------- */
+

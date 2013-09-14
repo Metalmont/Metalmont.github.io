@@ -1,0 +1,25 @@
+<script type="text/javascript">
+function initialize() {
+  var mapOptions = {
+    zoom: 14,
+    center: new google.maps.LatLng(46.415, 15.846595),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var image = '../../assets/pic/favico.png';
+  var myLatLng = new google.maps.LatLng(46.415475, 15.84635);
+  var beachMarker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      icon: image
+  });
+}
+function loadScript() {
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyCIF41lZWyK63b0wNsOXkscI1PyM4XOqa8&sensor=false&callback=initialize";
+  document.body.appendChild(script);
+}
+window.onload = loadScript;
+</script>

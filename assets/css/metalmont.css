@@ -1,0 +1,317 @@
+@import url("http://fonts.googleapis.com/css?family=Istok+Web:400,700|Droid+Sans&subset=latin,latin-ext");
+
+html, body {
+    height: 100%;
+    font-size: 16px;
+    font-family: 'Istok Web', sans-serif;
+}
+
+#map-canvas { height: 100% }
+#wrap{
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -280px;
+ }
+
+h1, h2, h3 {
+  margin-bottom: 20px;
+  font-family: 'Ubuntu';
+}
+
+a{
+     color: #a71816;
+}
+a:hover{
+    color: rgb(30,30,30);
+}
+/* Custom container */
+#wrap .container {
+  max-width: 800px;
+}
+#content-div{
+    padding-top:70px;
+    padding-bottom:20px;
+}
+.container-nav {  
+  width: 100%;
+  min-width: inherit;
+  background-color: rgb(240,240,240); 
+  border: 0 none;
+  box-shadow: 0 1px 1px rgba(15, 15, 15, 0.3);
+}
+
+/* Top nav and header
+-------------------------------------------------- */
+.navbar {
+    margin-bottom: 20px;
+    overflow: visible;
+    padding: 0;
+    min-height: 35px;
+    background-color: rgb(240,240,240); 
+}
+.navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+    max-width: 800px;
+}
+.navbar-fixed-bottom .navbar-inner {
+    box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
+}
+.navbar .nav {
+    display: block;
+    float: left;
+    left: 0;
+    margin: 0 10px 0 0;
+    position: relative;
+}
+.navbar .nav.pull-right {
+    float: right;
+    margin-right: 0;
+}
+.navbar .nav > li {
+    float: left;
+}
+
+header.navbar[role="banner"] {
+    border: 0 none;
+}
+header.navbar[role="banner"] .btn-navbar {
+    margin: 14px 14px 14px 0;
+}
+header.navbar[role="banner"] .btn-navbar {
+    background: none repeat scroll 0 0 transparent;
+    border: 2px solid #E0E2E4;
+}
+header.navbar[role="banner"] .btn-navbar .icon-bar {
+    background: none repeat scroll 0 0 #ABAFB3;
+    box-shadow: none;
+}
+header.navbar[role="banner"] .navbar-inner {
+    background: none repeat scroll 0 0 rgba(250, 250, 250, 0.98);
+    border: 0 none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+header.navbar[role="banner"] .brand {
+    background-image: url("../../assets/pic/metalmont_small.png");
+    background-size: 70% auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 60px;
+    margin: 0 0px 0 0;
+    width: 150px;
+}
+@media not all {
+header.navbar[role="banner"] .brand {
+    background-repeat: no-repeat;
+    background-size: 21px 30px;
+}
+}
+header.navbar.navbar-fixed-top[role="banner"] {
+    font-family: "Istok Web",Proxima Nova,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.19em;
+    text-transform: uppercase;
+}
+header.navbar.navbar-fixed-top[role="banner"] .navbar {
+    background-image: none;
+    border: 0 none;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav {
+    margin: 0;
+}
+
+header.navbar.navbar-fixed-top[role="banner"] .nav .store .button {
+    -moz-user-select: none;
+    background-color: #a71816;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    transition: all 0.2s ease 0s;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav .store .button.complement {
+    background-color: #00A876;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav .store .button:active {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) inset;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav a {
+    color: #474645;
+    line-height: 35px;
+    padding: 14px 10px 12px 10px;
+    text-shadow: none;
+    transition: all 0.2s ease 0s;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav a:hover {
+    color: #a21c16;
+    background-color: rgb(246,246,246);
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav a:focus {
+    outline: 0 none;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav .active a,
+header.navbar.navbar-fixed-top[role="banner"] .nav .active a:hover,
+header.navbar.navbar-fixed-top[role="banner"] .nav .active a:focus {
+    background-color: #EEEEEE;
+    box-shadow: none;
+    color: #a21c16;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav .brand, 
+header.navbar.navbar-fixed-top[role="banner"] .nav .store {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #EEEFF0;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px;
+    line-height: 60px;
+    padding: 0 15px;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav li > .dropdown-menu {
+    background-color: rgba(255, 255, 255, 0.98);
+    border-color: #E8E8E8 rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 0 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    min-width: 150px;
+    padding: 15px 0 12px;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav li > .dropdown-menu:before, header.navbar.navbar-fixed-top[role="banner"] .nav li > .dropdown-menu:after {
+    border: 0 none;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav li > .dropdown-menu a{
+    color: #45494D;
+    font-size: 0.875em !important;
+    font-weight: 900;
+    line-height: 32px;
+    padding: 0 30px;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav li > .dropdown-menu a:hover, 
+header.navbar.navbar-fixed-top[role="banner"] .nav li > .dropdown-menu a:focus {
+    color: rgb(245,245,245);
+    background-color: #A71816;
+    background-image: none;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav li > .dropdown-menu.storefront {
+    min-width: 150px !important;
+    padding: 6px;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav li > .dropdown-menu.storefront a {
+    background-color: #F6F6F6;
+    background-position: center center;
+    background-repeat: no-repeat;
+    line-height: 60px;
+    padding: 0;
+    text-indent: -9999px;
+    transition: all 0.2s ease 0s;
+    width: 152px;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav li > .dropdown-menu.storefront a:hover {
+    color: #A71816
+    background-color: #A71816;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav li > .dropdown-menu.storefront li:first-child {
+    margin-bottom: 5px;
+}
+header.navbar.navbar-full[role="banner"] .navbar-inner {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+header.navbar.navbar-full[role="banner"] .container {
+    padding: 0 20px;
+    width: auto;
+}
+@media (max-width: 767px) {
+header.navbar[role="banner"] .brand {
+    height: 35px;
+    background-size: auto 90%;
+    margin: 0 10px 0 0;
+    width: 110px;
+
+}
+header.navbar.navbar-fixed-top[role="banner"] {
+    margin-bottom: 0;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav {
+    background-color: #A71816;
+    width:100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
+    padding: 0px 0;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav  li{
+    width: 100%;
+}
+
+header.navbar.navbar-fixed-top[role="banner"] .nav a {
+    text-align: center;
+    color: #FFFFFF;
+    line-height: 10px;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav a:hover {
+    color: #a71816;
+}
+header.navbar[role="banner"] .btn-navbar {
+    margin: 0px 0px 0px 0px;
+}
+header.navbar[role="banner"] .navbar-inner {
+    padding: 0;
+}
+header.navbar[role="banner"] .container {
+    padding: 0 0px;
+}
+header.navbar[role="banner"] .navbar-toggle {
+    margin-top:4px;
+    margin-bottom:4px;
+    margin-right: 15px;
+    height: 28px;
+    width:35px;
+}
+#content-div{
+    padding-top:45px;
+}
+
+}
+@media (min-width: 767px) and (max-width: 979px) {
+header.navbar.navbar-fixed-top[role="banner"] .nav a {
+    font-size: 90%;
+    padding: 0 12px;
+}
+header.navbar[role="banner"] .brand {
+    height: 35px;
+    background-size: auto 90%;
+    margin: 0 10px 0 0;
+    width: 110px;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav .cart, header.navbar.navbar-fixed-top[role="banner"] .nav .brand, header.navbar.navbar-fixed-top[role="banner"] .nav .store {
+    line-height: 35px;
+    padding: 0 5px;
+}
+header.navbar.navbar-fixed-top[role="banner"] .nav .store .button {
+    height: 28px;
+    padding: 4px 10px;
+}
+#content-div{
+    padding-top:45px;
+}
+}
+/* FOOTER */
+
+#push{
+    height: 280px;
+}
+#footer {
+    background-color: rgb(250,250,250);
+    height:280px;
+    padding-top:20px;
+    box-shadow: 0 -1px 0 rgba(15, 15, 15, 0.3);
+}
+
+ /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }

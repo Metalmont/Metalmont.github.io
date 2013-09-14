@@ -1,0 +1,152 @@
+ $(document).ready(function() { 
+  /*liveScore*/
+  $("[id ^=tbS]").focus(function() { 
+        $(this).select(); 
+  });
+  $('[id ^=tbS]').each(function( index ) {  
+    $(this).addClass("text-center");
+    $(this).keydown(function(event) {
+      // Allow: backspace, delete, and enter
+      if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 13 || 
+         // Allow: Ctrl+A
+         (event.keyCode == 65 && event.ctrlKey === true)) {
+         // let it happen, don't do anything
+         return;
+      }
+      else {
+        // Ensure that it is a number and stop the keypress
+        if (event.shiftKey || (event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+        event.preventDefault(); 
+        }   
+      }
+    });    
+  });  
+  /*Change Events*/
+  $(".hammer").click(function() {
+    $(".hammer").each(function(index) {  
+      if($(this).children().hasClass("hidden"))
+        $(this).children().removeClass("hidden");
+      else
+        $(this).children().addClass("hidden");
+    });      
+    generateTableJson();
+  });
+  $('#liveComments').change(function() { 
+    sumScore();
+    generateTableJson();
+  });
+  $('input[id^=tbS], #opponent').change(function() { 
+    var currentId = $(this).attr('id');
+    var cidLen = currentId.length-1;
+    var otherId = currentId.replaceAt(cidLen, 
+                                      currentId.charAt(cidLen) == '1' ? '2' :'1');       
+    $("#"+otherId).val("");      
+    generateTableJson();
+  });
+    
+  $('.alert .close').click(function(e) {
+    $(this).parent().hide();
+  });
+    
+  String.prototype.replaceAt=function(index, character) {
+    return this.substr(0, index) + character + this.substr(index+character.length);
+  }
+  sumScore();
+  generateTables();
+});
+
+function sumScore(){
+  /*SUM team scores*/
+  for(var tn=1;tn<=2;tn++){
+    var sum=0;
+    $('[id ^=tbS][id $='+tn+']').each(function( index ) {
+       var pi = parseInt($(this).val());
+       if(!isNaN(pi))
+        sum+=+pi;
+    });      
+    $("#final"+tn).html("<strong>"+sum+"</strong>");
+  }
+}
+
+/*Generate JSON object for current table state*/   
+function generateTableJson(){    
+  sumScore();
+  var data = {};
+  data["dateLocation"]=$("#dateLocation").text();
+  data["final1"]=$("#final1").text();
+  data["final2"]=$("#final2").text();
+  data["opponent"]=$("#opponent").text();
+  data["liveComments"]=$("#liveComments").val();
+  
+  var regex = new RegExp("\n", "g");
+  data["liveComments"] = data["liveComments"].replace(regex, "<br>");
+  regex = new RegExp('"', "g");
+  data["liveComments"] = data["liveComments"].replace(regex, "'");
+  
+  $(".hammer").each(function(index) {  
+    if(!$(this).children().hasClass("hidden")){
+      data["H"+(index+1)]=$(this).html(); 
+    }
+    else{
+       data["H"+(index+1)]="";
+    }
+  });
+   $('[id ^=tbS]').each(function( index ) {
+       data[$(this).attr('id')]= $(this).val();
+   }); 
+   
+   var outData = JSON.stringify(data);
+   //TODO: save to gist.. new or replace.. file name has to be generated on create
+   $(".alert-success").fadeIn("slow");  
+   setTimeout(function() {$(".alert-success").fadeOut('slow');}, 3000); 
+}
+
+function generateTables(){     
+  //generate HTML from gist     
+  $.get('https://api.github.com/gists/6330648', function(data) {        
+    var tableHtml = "";
+    var games = new Array();
+    var i = 0;
+    for (var key in data.files) {
+      if (data.files.hasOwnProperty(key)) {
+        if(key=="rawTable"){
+          tableHtml= data.files[key].content;
+        }
+        else{
+          games[i]=data.files[key].content;
+          i++;
+        }
+      }
+    }        
+    for (var x = 0; x < games.length; x++) {        
+      var gamedata = jQuery.parseJSON(games[x]);
+      var tableOut = tableHtml;
+      for(var i=1;i<=2;i++){
+        for(var j=1;j<=10;j++)
+        {
+          tableOut=tableOut.replace("[tbS"+j+i+"]", gamedata["tbS"+j+i]);
+        }
+      }   
+      tableOut=tableOut.replace("[tbSe1]", gamedata["tbSe1"]);   
+      tableOut=tableOut.replace("[tbSe2]", gamedata["tbSe2"]);      
+      tableOut=tableOut.replace("[final1]", gamedata["final1"]);
+      tableOut=tableOut.replace("[final2]", gamedata["final2"]);
+      tableOut=tableOut.replace("[opponent]", gamedata["opponent"]);
+      tableOut=tableOut.replace("[dateLocation]", gamedata["dateLocation"]);
+      tableOut=tableOut.replace("[H1]", gamedata["H1"]);
+      tableOut=tableOut.replace("[H2]", gamedata["H2"]);
+      
+       var regex = new RegExp("\n", "g");
+       var liveComments = gamedata["liveComments"].replace(regex, "<br>");
+       
+       if(liveComments.length<3){
+        tableOut=tableOut.replace("[lcClass]", "hidden");       
+       }
+       else{          
+        tableOut=tableOut.replace("[liveComments]", liveComments);       
+       }    
+               
+      $('#generated').html($('#generated').html()+tableOut);
+    }        
+  });
+}
