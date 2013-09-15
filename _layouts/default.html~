@@ -1,6 +1,0 @@
-{% include header.html %}
-  <div class="infinite-image" style="display: none;"></div>
-  <div id="content-div" class="container-narrow">
-    {{ content }}
-  </div> <!-- /container -->
-{% include footer.html %}

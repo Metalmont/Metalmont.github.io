@@ -1,9 +1,8 @@
-@import url("http://fonts.googleapis.com/css?family=Istok+Web:400,700|Droid+Sans&subset=latin,latin-ext");
-
 html, body {
+    min-width: 510px;
     height: 100%;
     font-size: 16px;
-    font-family: 'Istok Web', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 #map-canvas { height: 100% }
@@ -39,6 +38,19 @@ a:hover{
   background-color: rgb(240,240,240); 
   border: 0 none;
   box-shadow: 0 1px 1px rgba(15, 15, 15, 0.3);
+}
+
+.language-select{
+    margin-top:30px; 
+    padding-left:10%;
+}
+
+.top-border-box{
+    border-top: 1px solid #BBBBBB;
+    margin:20px;
+    margin-top:15px;
+    padding-top:10px;
+    
 }
 
 /* Top nav and header

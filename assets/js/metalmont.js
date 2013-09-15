@@ -38,3 +38,5 @@ $(document).ready(function(){
 
     moveSlider();
 });
+
+$("#langPop").popover({html:true, placement: 'bottom'});

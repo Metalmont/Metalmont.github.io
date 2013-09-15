@@ -4,15 +4,21 @@
 <div id="footer">
     <div style="max-width:800px; display: block; margin-left:auto; margin-right:auto;">
     <div class="row" style="margin:0px;">
-        <div class="col-1 col-sm-1 col-lg-3"></div> 
-        <div class="col-6 col-sm-6 col-lg-5" >
+        <div class="col-3 language-select">
+          <h4>Jezik/Language:</h4>{% assign first_level = page.url | replace:"/de","" | remove_first:'/' | split:'/' | first %}
+                <a id="langPop" data-original-title="" href="#" 
+                   class="btn btn btn-default" data-toggle="popover" 
+                   data-content="<a href='{{site.baseurl}}/{{first_level}}'>Slovenščina</a><br/><a href='{{site.baseurl}}/en/{{first_level}}'>English</a>">
+                   <img src="{{site.baseurl}}/assets/pic/world.gif"></img>Deutch</a>
+        </div> 
+        <div class="col-5" >
             <img class="img-responsive" src="{{ site.baseurl }}/assets/pic/bg-footer.png" alt="">
         </div>
-        <div class="col-6 col-sm-6 col-lg-5" style="margin-left:-9%; margin-top:20px;">
+        <div class="col-5" style="margin-left:-9%; margin-top:20px;">
             <strong>METALMONT KD d.o.o.</strong><br/>
             Gubčeva ul. 33<br/>
             2251 Ptuj<br/>
-            SLOVENIJA<br/>
+            SLOWENIEN<br/>
         Tel./Fax.: +386 (0) 2 777 0040<br/>
             E-mail: <a href="mailto:info@metalmont.eu">info@metalmont.eu</a>
         </div>
@@ -20,9 +26,6 @@
     </div>
 </div>
 </div>
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://code.jquery.com/jquery.min.js"></script>
-    <script src="{{ site.baseurl }}/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="{{ site.baseurl }}/assets/js/metalmont.js"></script>
+    {%include jsEnd.html %}
 </body>
 </html>

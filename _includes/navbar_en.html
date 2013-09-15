@@ -1,0 +1,50 @@
+<header class="navbar navbar-fixed-top" role="banner">
+<div class="navbar-inner">
+ <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+    <div class="container">
+        <a class="brand visible-sm" role="button" href="/"></a>
+        <nav class="nav-collapse collapse" role="navigation">
+        <ul class="nav"> {% assign first_level = page.url | replace:"/en", "" | remove_first:'/' | split:'/' | first %}
+            <li class="dropdown hidden-sm">
+            <a class="toggle-dropdown brand" role="button" href="#" data-toggle="dropdown"></a>
+            <ul class="dropdown-menu" role="menu">
+                <li role="menuitem">
+                <a href="{{site.baseurl}}/en/">Home</a>
+                </li>                
+                <li role="menuitem">
+                <a href="{{site.baseurl}}/en/news">News</a>
+                </li>
+            </ul>
+            </li>
+            <li  {% if first_level == 'about' %} class="active"{% endif %}  >
+            <a href="{{site.baseurl}}/en/about/">About us</a>
+            </li>
+            <li {% if first_level == 'services' %} class="active"{% endif %}> 
+            <a href="{{site.baseurl}}/en/services">Services</a>
+            </li>
+            <li {% if first_level == 'job' %} class="active"{% endif %}>
+            <a href="{{site.baseurl}}/en/job">Career</a>
+            </li>
+            <li {% if first_level == 'where' %} class="active"{% endif %}>
+            <a href="{{site.baseurl}}/en/where">Location</a>
+            </li>
+            <li class="visible-sm">
+            <a href="{{site.baseurl}}/en/contact">Contact</a>
+            </li>
+        </ul>
+        <ul class="nav pull-right hidden-sm">
+            <li class="dropdown">
+            <a class="store" role="button" href="{{site.baseurl}}/en/contact">
+                <span class="button">Contact</span>
+            </a>
+            </li>
+        </ul>
+        </nav>
+    </div>
+</div>
+</header>
